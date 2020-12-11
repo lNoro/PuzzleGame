@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class InvisibleWall : MonoBehaviour
 {
-    private Material m_InvisibleMaterial;
+    public float FadeTime = 1f;
     // Start is called before the first frame update
     void Start()
     {
-        m_InvisibleMaterial = GetComponent<Material>();
     }
 
     // Update is called once per frame
@@ -20,6 +19,17 @@ public class InvisibleWall : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        m_InvisibleMaterial;
+        Color current = GetComponent<Renderer>().material.color;
+        Color visible = current;
+        visible.a = 255f;
+        GetComponent<Renderer>().material.color = Color.Lerp(current, visible, Time.deltaTime * FadeTime);
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        Color current = GetComponent<Renderer>().material.color;
+        Color visible = current;
+        visible.a = 0f;
+        GetComponent<Renderer>().material.color = Color.Lerp(current, visible, Time.deltaTime * FadeTime);
     }
 }
