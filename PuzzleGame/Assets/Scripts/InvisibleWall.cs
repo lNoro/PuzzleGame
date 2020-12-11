@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class InvisibleWall : MonoBehaviour
 {
-    public float FadeTime = 1f;
+    public float FadeTime;
+    private bool collided = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,22 +15,33 @@ public class InvisibleWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var material = GetComponent<Renderer>().material;
+        var color = material.color;
+        if(collided == true)
+        {
+            material.color = new Color(color.r, color.g, color.b, color.a + (FadeTime * Time.deltaTime));
+
+            if(material.color.a > 0.9)
+            {
+                collided = false;
+            }
+
+        }else if(collided == false && material.color.a > 0)
+        {
+            material.color = new Color(color.r, color.g, color.b, color.a - (FadeTime * Time.deltaTime));
+
+            if(material.color.a < 0)
+            {
+                material.color = new Color(color.r, color.g, color.b, 0);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        Color current = GetComponent<Renderer>().material.color;
-        Color visible = current;
-        visible.a = 255f;
-        GetComponent<Renderer>().material.color = Color.Lerp(current, visible, Time.deltaTime * FadeTime);
+        collided = true;
     }
 
-    private void OnCollisionExit(Collision other)
-    {
-        Color current = GetComponent<Renderer>().material.color;
-        Color visible = current;
-        visible.a = 0f;
-        GetComponent<Renderer>().material.color = Color.Lerp(current, visible, Time.deltaTime * FadeTime);
-    }
+    
+
 }
