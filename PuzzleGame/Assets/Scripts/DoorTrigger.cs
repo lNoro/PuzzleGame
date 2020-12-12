@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorTrigger : MonoBehaviour
 {
@@ -12,13 +13,17 @@ public class DoorTrigger : MonoBehaviour
     private Material m_MaterialToDissolve;
     private float m_Fade = 0f;
 
+    public Image eButton;
+
     private void Start()
     {
+        eButton.enabled = false;
         m_MaterialToDissolve = WallToDisappear.GetComponent<Renderer>().material;
     }
 
     private void Update()
     {
+
         if (!m_Dissolve) return;
         
         m_Fade += Time.deltaTime;
@@ -35,10 +40,20 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            //Camera.GetComponent<CameraControl>().GoToLightRoom();
-            m_Dissolve = true;
+        if(other.tag == "Player" && other.GetComponent<Player>().Key) {
+            eButton.enabled = true;
+            Debug.Log("Hit");
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //Camera.GetComponent<CameraControl>().GoToLightRoom();
+                m_Dissolve = true;
+            }
         }
+    }
+
+    private void OnTriggerExit() {
+        Debug.Log("out");
+        eButton.enabled = false;
     }
 }
