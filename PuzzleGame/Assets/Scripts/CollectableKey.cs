@@ -13,9 +13,9 @@ public class CollectableKey : MonoBehaviour
             {
                 player.Key = true;
             }
-            else
+            else if(gameObject.CompareTag("Weight"))
             {
-                //Collect something else
+                player.Weight = true;
             }
             Destroy(gameObject);
         }
