@@ -65,7 +65,10 @@ public class Speaking : MonoBehaviour
         {
             Bubbles = BubblesRoom2;
             m_Index = 0;
+            m_CurrentText = null;
             m_EnteredRoom2 = true;
+            m_NextText = 0f;
+            m_CloseText = 0f;
         }
     }
 
