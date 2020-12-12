@@ -3050,7 +3050,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449628764}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3d287a7980dbb674b910a2e1df861291, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3112,9 +3112,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449628764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 1, z: -4.64}
-  m_LocalScale: {x: 2.66, y: 1, z: 4.65}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5999999, y: 2.974495, z: -4.966784}
+  m_LocalScale: {x: 2.5, y: 5, z: 5.28}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -9435,6 +9435,10 @@ PrefabInstance:
       propertyPath: WeightPrefab
       value: 
       objectReference: {fileID: 374868252009043291, guid: 10095a077facab242a9cce64138f83de, type: 3}
+    - target: {fileID: 8980232282026572590, guid: 536479202689478459bec8dbfbaa42fd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3d287a7980dbb674b910a2e1df861291, type: 2}
     - target: {fileID: 8980232282043399146, guid: 536479202689478459bec8dbfbaa42fd, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -14190,7 +14194,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024032586}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3d287a7980dbb674b910a2e1df861291, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -14203,7 +14207,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024032586}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3d287a7980dbb674b910a2e1df861291, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -14216,7 +14220,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024032586}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3d287a7980dbb674b910a2e1df861291, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -15332,6 +15336,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 185143861}
     m_Modifications:
+    - target: {fileID: 4656057009709877298, guid: 51b27d089e48b2448adbd9fe78490364, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3d287a7980dbb674b910a2e1df861291, type: 2}
     - target: {fileID: 4656057009709877299, guid: 51b27d089e48b2448adbd9fe78490364, type: 3}
       propertyPath: m_Name
       value: InvisibleWall
