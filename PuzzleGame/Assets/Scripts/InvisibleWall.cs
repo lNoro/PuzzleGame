@@ -42,6 +42,15 @@ public class InvisibleWall : MonoBehaviour
         collided = true;
     }
 
-    
-
+    private void OnDrawGizmos()
+    {
+        BoxCollider bc = GetComponent<BoxCollider>();
+        if (bc == null)
+            return;
+        Gizmos.color = Color.magenta;
+        Matrix4x4 old = Gizmos.matrix;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(GetComponent<BoxCollider>().center, GetComponent<BoxCollider>().size);
+        Gizmos.matrix = old;
+    }
 }

@@ -23,4 +23,10 @@ public class CameraControl : MonoBehaviour
         m_AimPosition = new Vector3(transform.position.x, transform.position.y, 14);
         m_MoveCam = true;
     }
+    
+    public void GoToStartRoom()
+    {
+        m_AimPosition = new Vector3(transform.position.x, transform.position.y, 0);
+        m_MoveCam = true;
+    }
 }

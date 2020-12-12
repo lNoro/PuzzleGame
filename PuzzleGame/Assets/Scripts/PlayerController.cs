@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     public float Speed;
     public GameObject PlayerModel;
     private float m_TowardsY = 0f;
+
+    private Animator m_Animator;
         // Start is called before the first frame update
     void Start()
     {
-        
+        m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         float horMovement = Input.GetAxis("Horizontal");
         float verMovement = Input.GetAxis("Vertical");
-        //animator.SetFloat("Walking", Mathf.Abs(horMovement));
+        m_Animator.SetFloat("Movement", Mathf.Abs(horMovement) + Mathf.Abs(verMovement));
 
         transform.Translate(Vector3.forward * (horMovement * Speed * Time.deltaTime), Space.World);
         transform.Translate(Vector3.left * (verMovement * Speed * Time.deltaTime), Space.World);
