@@ -5,21 +5,43 @@ using UnityEngine;
 
 public class InvisibleWall : MonoBehaviour
 {
-    private Material m_InvisibleMaterial;
+    public float FadeTime;
+    private bool collided = false;
     // Start is called before the first frame update
     void Start()
     {
-        m_InvisibleMaterial = GetComponent<Material>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var material = GetComponent<Renderer>().material;
+        var color = material.color;
+        if(collided == true)
+        {
+            material.color = new Color(color.r, color.g, color.b, color.a + (FadeTime * Time.deltaTime));
+
+            if(material.color.a > 0.9)
+            {
+                collided = false;
+            }
+
+        }else if(collided == false && material.color.a > 0)
+        {
+            material.color = new Color(color.r, color.g, color.b, color.a - (FadeTime * Time.deltaTime));
+
+            if(material.color.a < 0)
+            {
+                material.color = new Color(color.r, color.g, color.b, 0);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        m_InvisibleMaterial;
+        collided = true;
     }
+
+    
+
 }
