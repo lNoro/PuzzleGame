@@ -13,5 +13,9 @@ public class CameraTrigger : MonoBehaviour
             Camera.GetComponent<CameraControl>().GoToStartRoom();
         else if(gameObject.CompareTag("Room2"))
             Camera.GetComponent<CameraControl>().GoToLightRoom();
+        
+        if(other.CompareTag("Player") && gameObject.CompareTag("Room2"))
+            if(!other.GetComponent<Speaking>().EnteredRoom2())
+                other.GetComponent<Speaking>().DialogsRoom2();
     }
 }

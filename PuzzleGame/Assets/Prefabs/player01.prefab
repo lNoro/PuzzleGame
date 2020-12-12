@@ -1625,6 +1625,7 @@ GameObject:
   - component: {fileID: 8980232282026572584}
   - component: {fileID: 8980232282026572595}
   - component: {fileID: 8980232282026572588}
+  - component: {fileID: 2496596382284767866}
   m_Layer: 0
   m_Name: player01
   m_TagString: Untagged
@@ -1744,6 +1745,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeightPrefab: {fileID: 478244014418104191, guid: 10095a077facab242a9cce64138f83de, type: 3}
+--- !u!114 &2496596382284767866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097850911679537809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7749eb4455d3a9148a07e594e0478ad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReadTime: 2.5
+  Interval: 7
+  Bubbles:
+  - {fileID: 8980232281276746033}
+  - {fileID: 8980232280855746903}
+  - {fileID: 8980232280920433674}
+  - {fileID: 8980232280380352224}
+  - {fileID: 8980232281114720928}
+  BubblesRoom2:
+  - {fileID: 8980232281753255871}
+  - {fileID: 8980232280958648755}
+  - {fileID: 8980232281621376193}
 --- !u!1 &8144982282793655596
 GameObject:
   m_ObjectHideFlags: 0
