@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class lampPuzzle : MonoBehaviour
 {
@@ -24,6 +26,16 @@ public class lampPuzzle : MonoBehaviour
 
     public static bool puzzleSolved = false;
 
+    public Text LampeAnAus;
+    public Image LampeAus;
+    public Image LampeAn;
+
+
+    void Start(){
+        LampeAnAus.gameObject.SetActive(false);
+        LampeAus.enabled = false;
+        LampeAn.enabled = false;
+    }
     void Update() {
         //Falls alle normalen Lampen aus sind und alle Puzzle Lampen an, lößt man das Puzzle (Dann gehen alle Lampen im Raum an)
         if(normalLampsTurnedOn == 0 && puzzleLampsTurnedOn == 4){
@@ -42,11 +54,23 @@ public class lampPuzzle : MonoBehaviour
             
             //Lampe wird gehighlighted
             gameObject.GetComponent<Renderer>().material.color = Color.blue;
+            LampeAus.enabled = true;
+            LampeAn.enabled = true;
+
+            LampeAnAus.gameObject.SetActive(true);
+            if(lampOn == true){
+                LampeAus.enabled = true;
+                LampeAn.enabled = false;
+            } else {
+                LampeAn.enabled = true;
+                LampeAus.enabled = false;
+            }
 
 
             if(Input.GetKeyDown(toggleLampVisibilty)) {
                 //Lampe wird aktiviert und abhängig von Lampentyp wird Lampenanzahl inkrementiert 
                 if(lampOn == true){
+
                     pointLight.SetActive(true);
                     lampOn = false;
                     if(isPuzzleLamp) puzzleLampsTurnedOn++;
@@ -64,6 +88,9 @@ public class lampPuzzle : MonoBehaviour
     }
 
     private void OnMouseExit() {
+        LampeAnAus.gameObject.SetActive(false);
         gameObject.GetComponent<Renderer>().material.color = Color.white;
+        LampeAus.enabled = false;
+        LampeAn.enabled = false;
     }
 }
