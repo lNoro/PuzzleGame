@@ -26,8 +26,9 @@ public class lampPuzzle : MonoBehaviour
 
     void Update() {
         //Falls alle normalen Lampen aus sind und alle Puzzle Lampen an, lößt man das Puzzle (Dann gehen alle Lampen im Raum an)
-        if(normalLampsTurnedOn == 0 && puzzleLampsTurnedOn == 2){
+        if(normalLampsTurnedOn == 0 && puzzleLampsTurnedOn == 5){
             pointLight.SetActive(true);
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
             Debug.Log("Solved");
             puzzleSolved = true;
         }
@@ -37,6 +38,7 @@ public class lampPuzzle : MonoBehaviour
         //Schaut ob Distanz zwischen Lampe und Spiele unter einem bestimmten Wert liegt, dann kann man mit der lampe interagieren
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if(dist < viewDist && puzzleSolved == false) {
+            Debug.Log("Hit");
             
             //Lampe wird gehighlighted
             gameObject.GetComponent<Renderer>().material.color = Color.blue;
