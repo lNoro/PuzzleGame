@@ -1,23 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public GameObject WeightPrefab;
+
+    public Image buttonQ;
     
     private bool m_Key;
     private bool m_Weight;
     // Start is called before the first frame update
     void Start()
     {
-        
+        buttonQ.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if(m_Weight == true) 
+            buttonQ.enabled = true;
+        else
+            buttonQ.enabled = false;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             PlaceWeightInFront();
