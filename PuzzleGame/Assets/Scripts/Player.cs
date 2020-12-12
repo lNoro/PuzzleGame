@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
             WeightPrefab.transform.rotation = transform.rotation;
             WeightPrefab.transform.position = transform.position;
             WeightPrefab.transform.Translate(Vector3.forward, Space.Self);
-            Instantiate(WeightPrefab, WeightPrefab.transform.position, WeightPrefab.transform.rotation);
+            Instantiate(WeightPrefab, WeightPrefab.transform.position, Quaternion.Euler(-90f,-90f,0f));
             m_Weight = false;
         }
     }
