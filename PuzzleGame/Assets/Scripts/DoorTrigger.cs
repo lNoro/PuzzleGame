@@ -13,6 +13,8 @@ public class DoorTrigger : MonoBehaviour
     private Material m_MaterialToDissolve;
     private float m_Fade = 0f;
 
+    AudioSource disolve_sound;
+
     public Image eButton;
 
     private void Start()
@@ -36,6 +38,8 @@ public class DoorTrigger : MonoBehaviour
         }
             
         m_MaterialToDissolve.SetFloat("_Fade", m_Fade);
+        disolve_sound = GetComponent<AudioSource>();
+        disolve_sound.Play();
     }
 
     private void OnTriggerStay(Collider other)

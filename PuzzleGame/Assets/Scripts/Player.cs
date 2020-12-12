@@ -9,8 +9,10 @@ public class Player : MonoBehaviour
 
     public Image buttonQ;
     
+    AudioSource weight_drop_m;
     private bool m_Key;
     private bool m_Weight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,9 +27,11 @@ public class Player : MonoBehaviour
         else
             buttonQ.enabled = false;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && m_Weight == true)
         {
             PlaceWeightInFront();
+            weight_drop_m = GetComponent<AudioSource>();
+            weight_drop_m.Play();
         }
     }
 

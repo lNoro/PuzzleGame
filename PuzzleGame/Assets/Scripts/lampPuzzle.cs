@@ -30,6 +30,8 @@ public class lampPuzzle : MonoBehaviour
     public Image LampeAus;
     public Image LampeAn;
 
+    AudioSource lightSwitch;
+
 
     void Start(){
         LampeAnAus.gameObject.SetActive(false);
@@ -68,6 +70,9 @@ public class lampPuzzle : MonoBehaviour
 
 
             if(Input.GetKeyDown(toggleLampVisibilty)) {
+                lightSwitch = GetComponent<AudioSource>();
+                lightSwitch.Play();
+
                 //Lampe wird aktiviert und abhängig von Lampentyp wird Lampenanzahl inkrementiert 
                 if(lampOn == true){
 
