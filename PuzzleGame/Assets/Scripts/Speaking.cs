@@ -9,7 +9,7 @@ public class Speaking : MonoBehaviour
 
     public float Interval = 8f;
 
-    private float m_NextText = 0f;
+    private float m_NextText = Time.time + 2f;
     private float m_CloseText = 0f;
 
     public GameObject[] Bubbles;
@@ -67,7 +67,7 @@ public class Speaking : MonoBehaviour
             m_Index = 0;
             m_CurrentText = null;
             m_EnteredRoom2 = true;
-            m_NextText = 0f;
+            m_NextText = Time.time + 2f;
             m_CloseText = 0f;
         }
     }
