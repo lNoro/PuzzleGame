@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     public Image buttonQ;
     
-    AudioSource weight_drop_m;
+    public AudioSource weight_drop_m;
     private bool m_Key;
     private bool m_Weight;
 

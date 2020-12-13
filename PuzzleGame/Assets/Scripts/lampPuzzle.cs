@@ -24,14 +24,13 @@ public class lampPuzzle : MonoBehaviour
     static int normalLampsTurnedOn = 0;
     private bool lampOn = true;
 
-    public static bool puzzleSolved = false;
+    private bool puzzleSolved = false;
 
     public Text LampeAnAus;
     public Image LampeAus;
     public Image LampeAn;
 
     AudioSource lightSwitch;
-
 
     void Start(){
         LampeAnAus.gameObject.SetActive(false);
@@ -46,6 +45,7 @@ public class lampPuzzle : MonoBehaviour
             Debug.Log("Solved");
             puzzleSolved = true;
         }
+        Debug.Log(puzzleSolved);
     }
 
     private void OnMouseOver() {
@@ -97,5 +97,9 @@ public class lampPuzzle : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.color = Color.white;
         LampeAus.enabled = false;
         LampeAn.enabled = false;
+    }
+
+    public bool returnGameState() {
+        return puzzleSolved;
     }
 }

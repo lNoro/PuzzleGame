@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public GameObject PlayerModel;
     private float m_TowardsY = 0f;
     private Animator m_Animator;
+    
         // Start is called before the first frame update
     void Start()
     {
