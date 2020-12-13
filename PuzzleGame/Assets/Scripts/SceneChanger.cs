@@ -5,13 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public string NextLevel;
+    public Animator Transition;
     public void LoadLevel()
     {
-        SceneManager.LoadScene("SampleScene");
+        StartCoroutine(LoadLevelWithTrans(NextLevel));
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadLevelWithTrans(string sceneName)
+    {
+        Transition.SetTrigger("StartTransition");
+        
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene(sceneName);
     }
 }
