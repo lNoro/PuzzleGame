@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public GameObject WeightPrefab;
+    private GameObject m_CurrentWeight;
 
     public Image buttonQ;
     
     public AudioSource weight_drop_m;
     private bool m_Key;
     private bool m_Weight;
+
+    public GameObject Monitor;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +58,7 @@ public class Player : MonoBehaviour
             WeightPrefab.transform.rotation = transform.rotation;
             WeightPrefab.transform.position = transform.position;
             WeightPrefab.transform.Translate(Vector3.forward, Space.Self);
-            Instantiate(WeightPrefab, WeightPrefab.transform.position, Quaternion.Euler(-90f,-90f,0f));
+            m_CurrentWeight = Instantiate(WeightPrefab, WeightPrefab.transform.position, Quaternion.Euler(-90f,-90f,0f));
             m_Weight = false;
         }
     }
@@ -83,5 +87,15 @@ public class Player : MonoBehaviour
         }
 
         return vector;
+    }
+
+    public void PuzzleSolved()
+    {
+        Monitor.GetComponentInChildren<Light>().enabled = true;
+        if (m_CurrentWeight != null)
+        {
+            Destroy(m_CurrentWeight);
+            m_CurrentWeight = null;
+        }
     }
 }

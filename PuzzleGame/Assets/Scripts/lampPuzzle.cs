@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 
@@ -44,6 +45,7 @@ public class lampPuzzle : MonoBehaviour
             gameObject.GetComponent<Renderer>().material.color = Color.green;
             Debug.Log("Solved");
             puzzleSolved = true;
+            player.GetComponent<Player>().PuzzleSolved();
         }
         Debug.Log(puzzleSolved);
     }
