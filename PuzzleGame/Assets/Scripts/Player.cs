@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -16,6 +17,10 @@ public class Player : MonoBehaviour
     private bool m_Weight;
 
     public GameObject Monitor;
+    public GameObject FinishBubble;
+
+    private float m_DisappearBubble;
+    private bool m_Finished;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,16 @@ public class Player : MonoBehaviour
             PlaceWeightInFront();
             weight_drop_m = GetComponent<AudioSource>();
             weight_drop_m.Play();
+        }
+
+        if (m_Finished && Time.time >= m_DisappearBubble)
+        {
+            Destroy(FinishBubble);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 
@@ -92,6 +107,9 @@ public class Player : MonoBehaviour
     public void PuzzleSolved()
     {
         Monitor.GetComponentInChildren<Light>().enabled = true;
+        FinishBubble.GetComponent<SpriteRenderer>().enabled = true;
+        m_DisappearBubble = Time.time + 5f;
+        m_Finished = true;
         if (m_CurrentWeight != null)
         {
             Destroy(m_CurrentWeight);

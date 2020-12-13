@@ -157,6 +157,11 @@ MonoBehaviour:
   - Corona hat dich erwischt und du liegst im Krankenhaus.
   - "Jedoch funktioniert das Beatmungsger\xE4t nicht mehr."
   - Repariere es und rette dein Leben !
+  - '"WSAD" zum Bewegen.'
+  - "\"Q\" zum Platzieren von Gegenst\xE4nden."
+  - '"E" zum Interagieren. '
+  - Linke Maustaste zum Ein- und Ausschalten.
+  - '"ESC" zum Neustarten.'
   NextScene: {fileID: 709251427}
 --- !u!4 &630042636
 Transform:

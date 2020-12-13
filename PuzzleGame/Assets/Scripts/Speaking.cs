@@ -9,7 +9,7 @@ public class Speaking : MonoBehaviour
 
     public float Interval = 8f;
 
-    private float m_NextText = Time.time + 2f;
+    private float m_NextText = 0f;
     private float m_CloseText = 0f;
 
     public GameObject[] Bubbles;
@@ -28,6 +28,7 @@ public class Speaking : MonoBehaviour
     private void Start()
     {
         m_Rotation = Bubbles[m_Index].transform.rotation;
+        m_NextText = Time.time + 2f;
     }
 
     // Update is called once per frame

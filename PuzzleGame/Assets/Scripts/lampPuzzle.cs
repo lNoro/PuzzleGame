@@ -26,15 +26,14 @@ public class lampPuzzle : MonoBehaviour
     private bool lampOn = true;
 
     private bool puzzleSolved = false;
-
-    public Text LampeAnAus;
+    
     public Image LampeAus;
     public Image LampeAn;
 
     AudioSource lightSwitch;
 
-    void Start(){
-        LampeAnAus.gameObject.SetActive(false);
+    void Start()
+    {
         LampeAus.enabled = false;
         LampeAn.enabled = false;
     }
@@ -61,7 +60,6 @@ public class lampPuzzle : MonoBehaviour
             LampeAus.enabled = true;
             LampeAn.enabled = true;
 
-            LampeAnAus.gameObject.SetActive(true);
             if(lampOn == true){
                 LampeAus.enabled = true;
                 LampeAn.enabled = false;
@@ -94,8 +92,8 @@ public class lampPuzzle : MonoBehaviour
         }
     }
 
-    private void OnMouseExit() {
-        LampeAnAus.gameObject.SetActive(false);
+    private void OnMouseExit() 
+    {
         gameObject.GetComponent<Renderer>().material.color = Color.white;
         LampeAus.enabled = false;
         LampeAn.enabled = false;
